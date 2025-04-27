@@ -21,7 +21,7 @@ const HotelDetails = () => {
           <HotelPolicy hotelPolicy={hotelInfo.hotelPolicy}/>
         </div>
         <aside className="w-[340px] shrink-0 p-4 border border-border shadow-md rounded-xl sticky top-6 h-min">
-          <HotelCheckoutCard/>
+          <HotelCheckoutCard rooms={hotelData.rooms} cancellationPolicy={hotelInfo.cancellationPolicy}/>
         </aside>
       </div>
     </div>
