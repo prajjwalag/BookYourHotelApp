@@ -16,14 +16,13 @@ const HotelDetails = () => {
       <PropertyViewCarousel images={hotelData.hotel.photos}/>
       <div className="flex gap-6 mt-6">
         <div className="flex-1 space-y-8">
-          <HotelMetaDetails hotel={hotelData.hotel}/>
-          <HotelRoomPicker/>
+          <HotelMetaDetails hotel={hotelData.hotel} info={hotelInfo}/>
+          <HotelRoomPicker rooms={hotelData.rooms}/>
           <HotelPolicy/>
         </div>
         <aside className="w-[340px] shrink-0 p-4 border border-border shadow-md roundex-xl">
           <HotelCheckoutCard/>
         </aside>
-        
       </div>
     </div>
   )
