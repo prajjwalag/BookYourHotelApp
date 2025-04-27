@@ -16,7 +16,7 @@ const HotelDetails = () => {
       <PropertyViewCarousel images={hotelData.hotel.photos}/>
       <div className="flex gap-6 mt-6">
         <div className="flex-1 space-y-8">
-          <HotelMetaDetails/>
+          <HotelMetaDetails hotel={hotelData.hotel}/>
           <HotelRoomPicker/>
           <HotelPolicy/>
         </div>
