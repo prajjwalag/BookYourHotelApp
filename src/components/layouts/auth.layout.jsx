@@ -4,7 +4,7 @@ import React from 'react'
 
 const AuthLayout = ({children, title, description}) => {
   return (
-    <div className='w-full h-[calc(100vh-140px)] flex items-center jutify-center'>
+    <div className='w-full my-10 sm:my-20 flex items-center jutify-center'>
         <div className='w-full md:max-w-md sm:mx-auto rounded-lg shadow-md p-4 sm:p-6'>
             <div className='flex flex-col items-center justify-center gap-3'>
                 <div className='p-3 rounded-lg shadow'>

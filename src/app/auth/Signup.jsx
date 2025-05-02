@@ -5,7 +5,13 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 const SignUp = () => {
-    const form = useForm();
+    const form = useForm({
+        defaultValues: {
+            name: "",
+            email: "",
+            password: ""
+        }
+    });
 
     const onSubmit = (data) => {
         console.log("Got the data...", data);
@@ -29,7 +35,7 @@ const SignUp = () => {
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input  {...field} className="h-10 rounded"/>
+                                <Input type='email' {...field} className="h-10 rounded"/>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -39,7 +45,7 @@ const SignUp = () => {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input  {...field} className="h-10 rounded"/>
+                                <Input type='password' {...field} className="h-10 rounded"/>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -48,6 +54,11 @@ const SignUp = () => {
                     <Button type="submit" className="w-full h-10" aria-label="Create a New Account">Create New Account</Button>
                 </form>
             </Form>
+            <div className='flex items-center justify-centermt-6'>
+                <span className='text-sm '>
+                    Already have an account? <a href="" className='text-primary hover:underline'>Sign In</a>
+                </span>
+            </div>
         </>
     )
 }
