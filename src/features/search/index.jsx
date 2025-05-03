@@ -1,16 +1,22 @@
 import React from 'react'
-import { Form, useForm } from 'react-hook-form'
+import {useForm } from 'react-hook-form'
+import { Form } from '@/components/ui/form';
 import LocationInput from './LocationInput';
 import OccupancyInput from './OccupancyInput';
 import { Button } from '@/components/ui/button';
 import DateSelectInput from './DateSelectInput';
+import dayjs from 'dayjs';
 
 const Search = () => {
 
-    const form = useForm();
+    const form = useForm({
+      defaultValues:{
+        city: ''
+      }});
 
     function onSubmit(data) {
-        console.log("Search Data: ", data);
+
+      console.log('Search data', data);
     }
 
   return (
@@ -20,11 +26,11 @@ const Search = () => {
                 <LocationInput form={form}/>
                 <DateSelectInput form={form}/>
                 <OccupancyInput form={form}/>
-                <Button type="submit" className="text-lg h-full">Searchs</Button>
+                <Button type="submit" className="text-lg h-full">Search</Button>
             </form>
-            </Form>
+        </Form>
     </section>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
