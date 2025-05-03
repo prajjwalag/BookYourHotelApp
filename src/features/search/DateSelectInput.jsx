@@ -10,7 +10,7 @@ const DateSelectInput = ({form}) => {
     <Popover>
       <FormField control={form.control} name='bookingDates' render={({field}) => (
         <>
-          <PopoverTrigger>
+          <PopoverTrigger asChild>
             <FormItem className='px-4 py-2 rounded bg-background h-full lg:min-w-[300px] lg:flex-auto'>
               <FormControl>
                 <div role='button' className='flex items-center h-full'>

@@ -18,18 +18,29 @@ const LocationInput = ({form}) => {
     setPopoverOpen(false);
   }
 
+  function handleKeyDown(e) {
+    switch(e.key) {
+      case 'ArrowUp':
+            console.log("UP Arrow Key Pressed");
+            break;
+      case 'ArrowDown':
+            console.log("Down Arrow key Presses");
+            break;
+    }
+  } 
+
   return (
    <Popover open={isPopoverOpen} onOpenChange={setPopoverOpen}>
     <PopoverTrigger asChild>
-      <div className='flex gap-2 items-center px-4 py-2 rounded bg-background lg:min-w-[360px]'>
+      <div className='flex gap-2 items-center px-4 py-2 rounded bg-background lg:min-w-[360px] h-full'>
         <Icon icon="bed" size='24'className='text-muted-foreground shrink-0' />
         <FormField control={form.control} name='city' render={({field}) => 
           <FormControl>
             <Input {...field} className='w-full h-full px-2 text-sm border-0 focus-visible:ring-transparent focus-visible:ring-offset-transaparent placeholder:font-normal placeholder:text-foreground focus:placeholder-muted-foreground'
-            placeholder='Where are you going?' {...field} />
+            placeholder='Where are you going?' {...field} autoComplete="off" onKeyDown={handleKeyDown}/>
           </FormControl>
         }/>
-        <div role='button' className={city ? '':'opacity-0'} onClick={(e) =>{
+        <div role='button' className={city ? '':'opacity-0 pointer-events-none'} onClick={(e) =>{
           e.preventDefault();
           form.setValue('city', '');
         }} 
