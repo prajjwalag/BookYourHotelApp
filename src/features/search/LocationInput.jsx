@@ -20,7 +20,7 @@ const LocationInput = ({form}) => {
 
   return (
    <Popover open={isPopoverOpen} onOpenChange={setPopoverOpen}>
-    <PopoverTrigger>
+    <PopoverTrigger asChild>
       <div className='flex gap-2 items-center px-4 py-2 rounded bg-background lg:min-w-[360px]'>
         <Icon icon="bed" size='24'className='text-muted-foreground shrink-0' />
         <FormField control={form.control} name='city' render={({field}) => 
