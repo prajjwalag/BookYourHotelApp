@@ -4,15 +4,17 @@ import Home from './home'
 import React from 'react'
 import HotelDetails from './hotel-details'
 import { SignInPage, SignUpPage } from './auth'
+import SearchPage from './search'
 
 const App = () => {
   return (
     <div>
       <Header/>
-      <Home/>
+      {/* <Home/> */}
       {/* <HotelDetails/> */}
       {/* <SignInPage/> */}
       {/* <SignUpPage/> */}
+      <SearchPage/>
       <Footer/>
 
     </div>
