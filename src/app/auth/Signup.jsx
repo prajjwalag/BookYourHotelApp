@@ -5,6 +5,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
+import { Link } from 'react-router';
 
 const SignUp = () => {
 
@@ -72,7 +73,7 @@ const SignUp = () => {
             </Form>
             <div className='flex items-center justify-centermt-6'>
                 <span className='text-sm '>
-                    Already have an account? <a href="" className='text-primary hover:underline'>Sign In</a>
+                    Already have an account? <Link to="/signin" className='text-primary hover:underline'>Sign In</Link>
                 </span>
             </div>
         </>
