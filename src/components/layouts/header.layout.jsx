@@ -3,6 +3,7 @@ import { Button } from '../ui/button'
 import { SERVICE_LIST } from '@/config/app.config'
 import Icon from '../ui/icon';
 import { Link } from 'react-router';
+import PATHS from '@/config/path.config';
 
 const Header = () => {
   return (
@@ -15,12 +16,12 @@ const Header = () => {
         </div>
         <div id='auth' className='flex gap-2 justify-center items-center'>
           <Button className="bg-white cursor-pointer border-primary text-primary rounded-sm hover:bg-white/95" asChild>
-            <Link to="/signup">
+            <Link to={PATHS.SIGNUP}>
               Register
             </Link>
           </Button>
           <Button asChild>
-            <Link to="/signin">Login</Link>
+            <Link to={PATHS.SINGIN}>Login</Link>
           </Button>
         </div>
       </div>

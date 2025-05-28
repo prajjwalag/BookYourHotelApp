@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import Icon from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
+import PATHS from '@/config/path.config';
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router';
@@ -61,7 +62,7 @@ const SignIn = () => {
             </Form>
             <div className='flex items-center justify-centermt-6'>
                 <span className='text-sm '>
-                    Dont't have an account? <Link to="/signup" className='text-primary hover:underline'>Create Account</Link>
+                    Dont't have an account? <Link to={PATHS.SIGNUP} className='text-primary hover:underline'>Create Account</Link>
                 </span>
             </div>
         </>

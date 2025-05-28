@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router';
+import PATHS from '@/config/path.config';
 
 const SignUp = () => {
 
@@ -15,18 +16,6 @@ const SignUp = () => {
     const handleHidePassword = (e) => {
         e.preventDefault(); 
         setShowPassword(prev => !prev);
-    }
-
-    const form = useForm({
-        defaultValues: {
-            name: "",
-            email: "",
-            password: ""
-        }
-    });
-
-    const onSubmit = (data) => {
-        console.log("Got the data...", data);
     }
 
     return (
@@ -73,7 +62,7 @@ const SignUp = () => {
             </Form>
             <div className='flex items-center justify-centermt-6'>
                 <span className='text-sm '>
-                    Already have an account? <Link to="/signin" className='text-primary hover:underline'>Sign In</Link>
+                    Already have an account? <Link to={PATHS.SINGIN} className='text-primary hover:underline'>Sign In</Link>
                 </span>
             </div>
         </>
