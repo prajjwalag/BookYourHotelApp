@@ -1,4 +1,6 @@
 const PATHS = {
+
+    LANDING: '/',
     SINGIN: '/signin',
     SIGNUP: '/signup',
 

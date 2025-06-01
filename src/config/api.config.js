@@ -5,6 +5,10 @@ const API_CONFIG = {
             URL: (hotelId) => `/hotels/${hotelId}/info`,
         },
     },
+    AUTH: {
+        SIGN_IN: '/auth/login',
+        SIGN_UP: '/auth/signup',
+    }
 };
 
 export default API_CONFIG;

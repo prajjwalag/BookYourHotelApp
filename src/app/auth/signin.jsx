@@ -6,6 +6,7 @@ import PATHS from '@/config/path.config';
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router';
+import { useSignInForm } from './hooks/use-sign-in-form';
 
 const SignIn = () => {
 
@@ -16,21 +17,11 @@ const SignIn = () => {
         setShowPassword(prev => !prev);
     }
 
-    const form = useForm({
-        defaultValues: {
-            email: "",
-            password: ""
-        }
-    });
-
-    const onSubmit = (data) => {
-        console.log("Got the data...", data);
-    }
-
+    const {form, handleSignInSubmit, pending} = useSignInForm();
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className='w-full mt-8 space-y-5'>
+                <form onSubmit={form.handleSubmit(handleSignInSubmit)} className='w-full mt-8 space-y-5'>
 
                     <FormField control={form.control} name="email" render={({ field }) => (
                         <FormItem>
@@ -57,7 +48,7 @@ const SignIn = () => {
                         </FormItem>
                     )} />
 
-                    <Button type="submit" className="w-full h-10" aria-label="Login to your Account">Login</Button>
+                    <Button type="submit" className="w-full h-10" aria-label="Login to your Account" disabled={pending}>Login</Button>
                 </form>
             </Form>
             <div className='flex items-center justify-centermt-6'>

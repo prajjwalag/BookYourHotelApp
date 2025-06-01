@@ -2,15 +2,15 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router';
 import PATHS from '@/config/path.config';
+import { useSignUpForm } from './hooks/use-sign-up-form';
 
 const SignUp = () => {
 
-    
+    const { form, handleSignUpSubmit, pending } = useSignUpForm();
     const [showPassword, setShowPassword] = useState(false);
     
     const handleHidePassword = (e) => {
@@ -21,7 +21,7 @@ const SignUp = () => {
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className='w-full mt-8 space-y-5'>
+                <form onSubmit={form.handleSubmit(handleSignUpSubmit)} className='w-full mt-8 space-y-5'>
                     <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem>
                             <FormLabel>Name</FormLabel>
@@ -57,7 +57,7 @@ const SignUp = () => {
                         </FormItem>
                     )} />
 
-                    <Button type="submit" className="w-full h-10" aria-label="Create a New Account">Create New Account</Button>
+                    <Button type="submit" className="w-full h-10" aria-label="Create a New Account" disabled={pending}>Create New Account</Button>
                 </form>
             </Form>
             <div className='flex items-center justify-centermt-6'>
