@@ -33,7 +33,7 @@ const useSignUpForm = () => {
             onError: (error) => {
                 console.error("Sign Up Error:", error);
                 toast("Sign Up Failed!", {
-                    description: "Something went wrong.",
+                    description: error.message,
                     type: "error"
                 });
             }

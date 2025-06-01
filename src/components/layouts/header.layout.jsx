@@ -4,8 +4,12 @@ import { SERVICE_LIST } from '@/config/app.config'
 import Icon from '../ui/icon';
 import { Link } from 'react-router';
 import PATHS from '@/config/path.config';
+import { useAuthContext } from '@/lib/providers/auth-context-provider';
 
 const Header = () => {
+
+  const { authenticatedUser } = useAuthContext(); 
+
   return (
     <header className='bg-brand py-2'>
       <div className='container flex justify-between items-center'>
@@ -15,14 +19,21 @@ const Header = () => {
           </Link>
         </div>
         <div id='auth' className='flex gap-2 justify-center items-center'>
-          <Button className="bg-white cursor-pointer border-primary text-primary rounded-sm hover:bg-white/95" asChild>
-            <Link to={PATHS.SIGNUP}>
-              Register
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link to={PATHS.SINGIN}>Login</Link>
-          </Button>
+          {authenticatedUser.user ? (
+            <p>Hi, {authenticatedUser.user.name}</p>
+          ): (
+            <>
+              <Button className="bg-white cursor-pointer border-primary text-primary rounded-sm hover:bg-white/95" asChild>
+                <Link to={PATHS.SIGNUP}>
+                  Register
+                </Link>
+              </Button>
+              <Button asChild>
+                <Link to={PATHS.SINGIN}>Login</Link>
+              </Button>
+            </>
+          )}
+          
         </div>
       </div>
       <div className='container flex gap-1 overflow-x-auto scrollbar'>

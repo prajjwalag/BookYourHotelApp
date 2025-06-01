@@ -28,14 +28,14 @@ const useSignInForm = () => {
                 toast("Logged In Successfully!", {
                     type: "success"
                 });
-                setStorageItem(AUTH_TOKEN_KEY, response.data.data.accessToken);
+                setStorageItem(AUTH_TOKEN_KEY, response.data.accessToken);
                 navigate(PATHS.LANDING );
                 
             },
             onError: (error) => {
                 console.error("Sign In Error:", error);
                 toast("Signin Failed!", {
-                    description: "Something went wrong.",
+                    description: error.message,
                     type: "error"
                 });
             }

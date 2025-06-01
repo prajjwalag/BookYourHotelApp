@@ -8,7 +8,10 @@ const API_CONFIG = {
     AUTH: {
         SIGN_IN: '/auth/login',
         SIGN_UP: '/auth/signup',
-    }
+    },
+    USER: {
+        PROFILE: '/users/profile',
+    },
 };
 
 export default API_CONFIG;
