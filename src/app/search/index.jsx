@@ -22,7 +22,7 @@ const SearchPage = () => {
      
     }
   });
-  const hotels = data?.data.content || [];
+  const hotels = data?.content || [];
 
   return (
     <div className='container flex gap-4 mt-6 mb-12'>

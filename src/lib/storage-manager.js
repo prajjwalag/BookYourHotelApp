@@ -8,8 +8,8 @@ function setStorageItem(key, value) {
     return localStorage.setItem(key, value);
 }
 
-function deleteStorageItem(key) {
+function removeStorageItem(key) {
     return localStorage.removeItem(key);
 }
 
-export {AUTH_TOKEN_KEY, getStorageItem, setStorageItem, deleteStorageItem}
+export {AUTH_TOKEN_KEY, getStorageItem, setStorageItem, removeStorageItem}
