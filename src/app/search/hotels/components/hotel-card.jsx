@@ -35,7 +35,7 @@ const HotelImages = ({ photos }) => {
       </div>
       <div className="grid grid-cols-4 gap-1 w-60">
         {photos.slice(1).map((image, index) => (
-          <div className="relative overflow-hidden rounded-sm" key={image}>
+          <div className="relative overflow-hidden rounded-sm" key={index}>
             <img
               height={50}
               width={60}

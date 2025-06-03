@@ -36,7 +36,8 @@ const OccupancyInput = ({form}) => {
                   <span>{field.value}</span>
                   <Button variant='ghost' size='icon' className='size-10 text-primary hover:text-primary focus-visible:ring-transparent focus-visible:ring-offset-transaparent' onClick={(e) => {
                     e.preventDefault();
-                    field.onChange(field.value+1);
+                    if(field.value < 10 )
+                      field.onChange(field.value+1);
                   }}>
                     <Icon icon='plus'/>
                   </Button>
