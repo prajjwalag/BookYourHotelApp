@@ -190,10 +190,10 @@ export const TRENDING_DESTINATIONS = [
   ];
 
   export const SEARCH_PARAMS_KEYS = {
-  CHECKIN: 'checkin',
-  CHECKOUT: 'checkout',
-  ROOMS: 'rooms',
-  LOCATION: 'location',
+  CHECKIN: 'startDate',
+  CHECKOUT: 'endDate',
+  ROOMS: 'roomsCount',
+  LOCATION: 'city',
   SELECTED_ROOM: 'selected_rcid',
   SORTBY: 'sort',
   PAGE: 'page',
@@ -221,3 +221,5 @@ export const SEARCH_FILTERS = [
     value: 'price-desc',
   },
 ];
+
+export const SEARCH_RESULT_PAGE_LIMIT = 4;

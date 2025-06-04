@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { searchFormSchema } from '@/lib/validators/search-form-validator';
 import { useNavigate, useSearchParams } from 'react-router';
+import { SEARCH_PARAMS_KEYS } from '@/config/app.config';
 
 export default function useSearchForm() {
 
@@ -14,13 +15,12 @@ export default function useSearchForm() {
  const form = useForm({
       resolver: zodResolver(searchFormSchema),
       defaultValues:{
-        city: '',
-        roomsCount: 1,
-        bookingDates: {
-          from: dayjs().toDate(),
-          to: dayjs().add(1, 'day').toDate()
-        },
-        
+            city: searchParams.get(SEARCH_PARAMS_KEYS.LOCATION) || '',
+            roomsCount: parseInt(searchParams.get(SEARCH_PARAMS_KEYS.ROOMS)) || 1,
+            bookingDates: {
+              from: searchParams.get(SEARCH_PARAMS_KEYS.CHECKIN),
+              to: searchParams.get(SEARCH_PARAMS_KEYS.CHECKOUT)
+            }
       }});
 
     function searchSubmitHandler(data) {

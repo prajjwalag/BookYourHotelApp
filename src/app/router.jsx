@@ -7,6 +7,7 @@ import { SignInPage, SignUpPage } from './auth'
 import Header from '@/components/layouts/header.layout'
 import Footer from '@/components/layouts/footer.layout'
 import PATHS from '@/config/path.config'
+import WithSearchLayout from '@/components/layouts/with-search-layout'
 
 const Router = () => {
   return (
@@ -15,8 +16,11 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home/>} />
 
-        <Route path={PATHS.SEARCH} element={<SearchPage/>} />
-        <Route path={PATHS.HOTEL} element={<HotelDetails/>} />
+        <Route element={<WithSearchLayout/>}>
+          <Route path={PATHS.SEARCH} element={<SearchPage/>} />
+          <Route path={PATHS.HOTEL} element={<HotelDetails/>} />
+        </Route>
+        
 
         <Route path={PATHS.SINGIN} element={<SignInPage/>} />
         <Route path={PATHS.SIGNUP} element={<SignUpPage/>} />

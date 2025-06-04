@@ -11,15 +11,18 @@ const PriceFilter = ({form}) => {
       </div>
       <FormField
         control={form.control}
-        name="priceCategory"
+        name="priceRange"
         render={({ field }) => (
           <FormItem>
             {PRICE_FILTERS.map((price) => (
-              <FormItem key={price.id} className="flex items-center gap-2">
+              <FormItem key={price.id} className="flex items-center gap-2 space-y-0">
                 <FormControl>
-                  <Checkbox className='w-5 h-5' checked={field.value?.includes(price.value)}
+                  <Checkbox className='w-5 h-5' checked={(field.value || []).includes(price.value)}
                   onCheckedChange={(checked) => {
-                    const newValue = checked ? [...field.value, price.value] : field.value?.filter((value) => value !== price.value);
+                    const currentValue = field.value || [];
+                     const newValue = checked
+                        ? [...currentValue, price.value]
+                        : currentValue.filter((value) => value !== price.value);
                     field.onChange(newValue);
                   }}/>
                   
