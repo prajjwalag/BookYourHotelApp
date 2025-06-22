@@ -1,5 +1,7 @@
 import Icon from '@/components/ui/icon';
 import React from 'react';
+import useHotelNavigation from '../hooks/use-hotel-navigation';
+import { Link } from 'react-router';
 
 const hotelInfo = {
   description:
@@ -57,7 +59,11 @@ const HotelImages = ({ photos }) => {
 };
 
 const HotelCard = ({ name, photos, city, id, amenities, price }) => {
+
+  const navigationURL = useHotelNavigation(id);
+
   return (
+    <Link to={navigationURL}>
     <article className="flex w-full transition-colors border rounded-lg hover:border-primary">
       <div className="flex flex-1 gap-4 p-4">
         <HotelImages photos={photos} />
@@ -124,6 +130,7 @@ const HotelCard = ({ name, photos, city, id, amenities, price }) => {
         </div>
       </div>
     </article>
+    </Link>
   );
 };
 
